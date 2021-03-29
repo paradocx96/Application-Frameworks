@@ -36,13 +36,13 @@ readStream.on('data', data => {
 });
 
 //Question 5
-const http = require('http');
+//const http = require('http');
 
-http.createServer((req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.write('<h1>Hello World</h1>');
-    res.end();
-}).listen(3000);
+// http.createServer((req, res) => {
+//     res.setHeader('Content-Type', 'text/html');
+//     res.write('<h1>Hello World</h1>');
+//     res.end();
+// }).listen(3000);
 
 //With POST request
 const http = require('http');
@@ -64,3 +64,11 @@ http.createServer((req, res) => {
 }).listen(3000, (err) => {
     console.log('Server is listening to port 3000')
 });
+
+// Additional
+
+for (const cpu of os.cpus()) {
+    console.log(cpu)
+}
+
+console.log('Uptime' + os.uptime());

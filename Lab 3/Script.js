@@ -1,4 +1,4 @@
-use sliit
+//use sliit
 
 //Question 3
 db.students.insert

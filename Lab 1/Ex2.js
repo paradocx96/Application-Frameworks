@@ -15,3 +15,17 @@ var car = {
 car.car_dis();
 
 //============================================
+
+let person = {
+    name: "Navinda",
+    age: 25,
+
+    printDetails: function () {
+        console.log(this.name);
+        console.log(this.age);
+    }
+};
+
+person.printDetails();
+
+//============================================

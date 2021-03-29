@@ -46,6 +46,8 @@ displayVName();
 
 var result = vcar.getVName();
 result = result.bind(vcar); //without this it shows 2 BMWs
+// Because of bind() function it shows name of car declared
+// in inside the vcar object
 result();
 
 //============================================
