@@ -8,44 +8,61 @@ const os = require('os');
 console.log('Architecture ' + os.arch());
 console.log('CPUs ' + os.cpus().length);
 console.log('OS ' + os.platform());
+console.log('Uptime : ' + os.uptime());
+
+for (const cpu of os.cpus()) {
+    console.log(cpu);
+}
 
 //Question 3
 const fs = require('fs');
-const fileName = __dirname + '/test.txt';
+// fs module support Synchronous operations
+fs.readFile('test.txt', 'utf-8', (err, data) => {
 
-fs.readFile(fileName, (err, data) => {
+    //err = null => false
+    //err = undefined => false
+    //err = '' => false
+    //err = false => false
+    //err = 0 => false
     if (err) {
         console.error(err);
+        return;
     }
+
     console.log(data.toString());
+    // console.log(data.toString('utf-8'));
 });
 
-const data = fs.readFileSync(fileName);
-console.log(data.toString());
-
 //Question 4
-const outFileName = __dirname + '/test-copy.txt';
+// const fs = require('fs');
+const readStream = fs.createReadStream('test.txt');
+const writeStream = fs.createWriteStream('test-copy.txt');
 
-const readStream = fs.createReadStream(fileName);
-const writeStream = fs.createWriteStream(outFileName);
+readStream.addListener('end', () => {
+    console.log('End of the File read!');
+});
+
+writeStream.addListener('close', () => {
+    console.log('End of the File write!');
+    console.log(fs.readFileSync('test-copy.txt', 'utf-8'));
+});
 
 readStream.pipe(writeStream);
 
-readStream.on('data', data => {
-    console.log(data.toString());
-});
-
 //Question 5
-//const http = require('http');
+const http = require('http');
 
 // http.createServer((req, res) => {
 //     res.setHeader('Content-Type', 'text/html');
-//     res.write('<h1>Hello World</h1>');
+//     res.write('<h1>Hello World!</h1>')
 //     res.end();
-// }).listen(3000);
-
-//With POST request
-const http = require('http');
+// }).listen(3000, (err) => {
+//     if (err) {
+//         console.error(err);
+//         return;
+//     }
+//     console.log('Server listening on 3000');
+// });
 
 http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/html');
@@ -60,15 +77,12 @@ http.createServer((req, res) => {
                 res.end();
             });
             break;
+        case 'PUT':
+            req.on('data', data => {
+                res.write('<h1>Put request received with : ' + data + '</h1>');
+                res.end();
+            });
     }
 }).listen(3000, (err) => {
     console.log('Server is listening to port 3000')
 });
-
-// Additional
-
-for (const cpu of os.cpus()) {
-    console.log(cpu)
-}
-
-console.log('Uptime' + os.uptime());

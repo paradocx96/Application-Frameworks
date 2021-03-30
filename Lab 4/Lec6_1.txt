@@ -1,0 +1,2 @@
+Node JS is awesome.
+This is coming from a Stream.
