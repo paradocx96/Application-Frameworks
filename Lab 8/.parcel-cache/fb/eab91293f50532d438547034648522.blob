@@ -1,0 +1,68 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _jsxFileName = "C:\\Projects\\WebStorm\\Application-Framework-JS\\Lab 8\\components\\PostListItem.jsx";
+  function PostListItem(props) {
+    const {post} = props;
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("tr", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 5,
+          columnNumber: 12
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("td", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 6,
+          columnNumber: 9
+        }
+      }, post.id), /*#__PURE__*/_reactDefault.default.createElement("td", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 7,
+          columnNumber: 9
+        }
+      }, post.name), /*#__PURE__*/_reactDefault.default.createElement("td", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8,
+          columnNumber: 9
+        }
+      }, post.description), /*#__PURE__*/_reactDefault.default.createElement("td", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9,
+          columnNumber: 9
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("a", {
+        onClick: () => selectPost(post),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9,
+          columnNumber: 13
+        }
+      }, "Select")))
+    );
+  }
+  exports.default = PostListItem;
+  _c = PostListItem;
+  var _c;
+  $RefreshReg$(_c, "PostListItem");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

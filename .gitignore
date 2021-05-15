@@ -1,7 +1,17 @@
 /.idea/*
+
 /Lab 5/node_modules/
+
 /Lab 6/node_modules/
+
 /Lab 7/node_modules/
 /Lab 7/.parcel-cache/
+/Lab 7/dist/
+
+/Lab 8/node_modules/
+/Lab 8/.parcel-cache/
+/Lab 8/dist/
+
 /Lecture 7/node_modules/
 /Lecture 7/.parcel-cache/
+/Lecture 7/dist/
